@@ -15,6 +15,16 @@ test("test dequeue: first enqueued should be dequeued first", () => {
     expect(queue.dequeue()).toBe(2)
 })
 
+test("test clear: there should be nothing in the queue after being cleared", () => {
+    const queue = createQueue()
+    queue.enqueue(0)
+    queue.enqueue(1)
+    expect(queue.peek()).toBe(1)
+    expect(queue.size()).toBe(2)
+    queue.clear()
+    expect(queue.size()).toBe(0)
+})
+
 test("test isEmpty: newly created list should be empty", () => {
     expect(createQueue().isEmpty()).toBeTruthy()
 })
