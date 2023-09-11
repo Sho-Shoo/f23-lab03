@@ -5,8 +5,15 @@ import { newLinkedListIntQueue } from "../src/linkedlistqueue.js";
 let createQueue = newLinkedListIntQueue
 // let createQueue = newArrayIntQueue
 
-// TODOs:
-// write more test cases to test dequeue and clear functions.
+test("test dequeue: first enqueued should be dequeued first", () => {
+    const queue = createQueue()
+    queue.enqueue(0)
+    queue.enqueue(1)
+    queue.enqueue(2)
+    queue.enqueue(3)
+    expect(queue.dequeue()).toBe(3)
+    expect(queue.dequeue()).toBe(2)
+})
 
 test("test isEmpty: newly created list should be empty", () => {
     expect(createQueue().isEmpty()).toBeTruthy()
@@ -53,3 +60,4 @@ describe("test size: ", ()=> {
         expect(queue.size()).toBe(11)
     })
 })
+
